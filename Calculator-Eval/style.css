@@ -1,0 +1,56 @@
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+#main{
+    width: 350px;
+    background-color: black;
+    border-radius: 30px;
+    margin: auto;
+    padding: 15px;
+}
+#display{
+    height: 100px;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px 20px 0px 0px;
+    overflow: hidden;
+    position: relative;
+}
+#display h2{
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    font-size: 30px;
+}
+#main>div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+button{
+    height: 70px;
+    width: 87.5px;
+    font-size: 40px;
+    border: 1px solid grey
+}
+.opr{
+    background-color: lightblue;
+}
+#main>div:last-child{
+    justify-content: end;
+}
+#clear{
+    width: 75%;
+    background-color: red;
+    color: white;
+}
+#backspace{
+    border-radius: 0px 0px 20px 0px;
+    background-color: red;
+    color: white;
+}
+#eql{
+    background-color: green;
+    color: white;
+}
