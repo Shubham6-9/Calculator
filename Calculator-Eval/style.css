@@ -1,56 +1,165 @@
-h1{
+/* General Body Styles */
+body {
+    background-color: #1a1a1a; /* Darker background */
+    color: #e0e0e0; /* Lighter text for contrast */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbar if subtle shadows extend */
+}
+
+/* Heading Styles */
+h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 3.5em; /* Slightly smaller, more refined */
+    color: #4CAF50; /* Green accent for heading */
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Subtle glow */
+    margin-bottom: 10px; /* Reduce space after heading */
+    letter-spacing: 2px; /* A bit more breathing room */
 }
-#main{
-    width: 350px;
-    background-color: black;
-    border-radius: 30px;
-    margin: auto;
-    padding: 15px;
+
+p {
+    text-align: center;
+    font-size: 1.1em;
+    color: #bdbdbd; /* Slightly muted for description */
+    margin-top: 0; /* Align closer to heading */
+    margin-bottom: 30px; /* Space before the calculator */
 }
-#display{
-    height: 100px;
-    width: 90%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px 20px 0px 0px;
+
+/* Main Calculator Container */
+#main {
+    width: 380px; /* Slightly wider for better button spacing */
+    background-color: #2b2b2b; /* Dark grey for the calculator body */
+    border-radius: 25px; /* Softer rounded corners */
+    padding: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Deeper, more noticeable shadow */
+    border: 1px solid #3a3a3a; /* Subtle border */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack display and button rows */
+    gap: 15px; /* Space between rows */
+}
+
+/* Display Area */
+#display {
+    height: 110px; /* Slightly taller display */
+    width: calc(100% - 30px); /* Adjust width to account for padding */
+    background-color: #1f1f1f; /* Even darker for display */
+    border-radius: 15px; /* Rounded corners for display */
     overflow: hidden;
     position: relative;
+    padding: 15px; /* Inner padding for display content */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Inner shadow for depth */
+    display: flex; /* Flexbox for alignment of h2 */
+    align-items: flex-end; /* Align content to the bottom */
+    justify-content: flex-end; /* Align content to the right */
 }
-#display h2{
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-    font-size: 30px;
+
+#display h2 {
+    font-size: 3.2em; /* Larger, clearer display font */
+    color: #e0e0e0;
+    font-weight: normal; /* Not too bold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    margin: 0; /* Remove default margin from h2 */
+    word-break: break-all; /* Allow long numbers to break */
+    white-space: nowrap; /* Prevent line breaks unless necessary */
+    overflow-x: auto; /* Enable horizontal scrolling for long numbers */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
-#main>div{
-    width: 100%;
+
+/* Hide scrollbar for WebKit browsers */
+#display h2::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Button Row Layout */
+#main > div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Distribute buttons evenly */
+    gap: 10px; /* Space between buttons within a row */
 }
-button{
-    height: 70px;
-    width: 87.5px;
-    font-size: 40px;
-    border: 1px solid grey
+
+/* Individual Button Styles */
+button {
+    height: 70px; /* Uniform height */
+    flex-grow: 1; /* Allow buttons to grow and fill space */
+    font-size: 2em; /* Good size for readability */
+    border: none; /* No default border */
+    border-radius: 12px; /* Slightly rounded buttons */
+    background-color: #3f3f3f; /* Darker button background */
+    color: #e0e0e0; /* Light text on buttons */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out; /* Smooth transitions for hover/active */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Button shadow */
+    outline: none; /* Remove outline on focus */
 }
-.opr{
-    background-color: lightblue;
+
+button:hover {
+    background-color: #4a4a4a; /* Lighter on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
-#main>div:last-child{
-    justify-content: end;
+
+button:active {
+    transform: translateY(0); /* Push down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #353535; /* Even darker on click */
 }
-#clear{
-    width: 75%;
-    background-color: red;
+
+/* Operator Buttons */
+.opr {
+    background-color: #007bff; /* Vibrant blue for operators */
     color: white;
 }
-#backspace{
-    border-radius: 0px 0px 20px 0px;
-    background-color: red;
+
+.opr:hover {
+    background-color: #0069d9;
+}
+
+.opr:active {
+    background-color: #005cbf;
+}
+
+/* Specific button overrides for layout */
+#clear {
+    width: calc(75% - 15px); /* Take up more space */
+    background-color: #dc3545; /* Red for clear */
     color: white;
 }
-#eql{
-    background-color: green;
+#clear:hover { background-color: #c82333; }
+#clear:active { background-color: #bd2130; }
+
+
+#backspace {
+    background-color: #ffc107; /* Yellow for backspace */
+    color: #333; /* Dark text for yellow button */
+}
+#backspace:hover { background-color: #e0a800; }
+#backspace:active { background-color: #d39e00; }
+
+
+#eql {
+    background-color: #28a745; /* Green for equals */
     color: white;
+}
+#eql:hover { background-color: #218838; }
+#eql:active { background-color: #1e7e34; }
+
+/* Adjusting the last row buttons to share space */
+#main > div:last-child button {
+    width: calc(33.33% - 10px); /* Distribute the last three buttons evenly */
+}
+
+#main > div:first-child button:last-child { /* Specific styling for the first row's / operator */
+    width: auto; /* Let flex-grow handle it */
+    flex-grow: 1; /* Ensure it takes available space */
+}
+
+#main > div:nth-child(2) button:first-child { /* Clear button */
+    flex-grow: 3; /* Make clear button wider */
 }
